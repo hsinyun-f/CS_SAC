@@ -157,7 +157,7 @@ $$\pi^* = \arg\max_\pi \mathbb{E}\left[\sum_t r(s_t, a_t) + \alpha \mathcal{H}(\
   <em>由簡入深的三階段訓練排程，有效避免超時陷阱與局部最佳解</em>
 </p>
 
-為防止機器人在複雜環境中因盲目探索觸發**超時陷阱 (Timeout Trap)**，CS-SAC 實施由簡入深的三階段訓練：
+為防止機器人在複雜環境中因盲目探索觸發**超時陷阱 (Timeout Trap)**，AC-SAC 實施由簡入深的三階段訓練：
 
 ```
 階段一 → 階段二 → 階段三
