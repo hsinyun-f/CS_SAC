@@ -1,4 +1,4 @@
-# CS-SAC：面向複雜社交場景的機器人導航框架
+# AC-SAC：面向複雜社交場景的機器人導航框架
 
 > **Curriculum-guided Soft Actor-Critic for Robot Social Navigation**
 > 
@@ -7,7 +7,7 @@
 <p align="center">
   <img src="images/cs_sac_navigation_demo.png" alt="CS-SAC 社交導航演示" width="80%"/>
   <br>
-  <em>CS-SAC 機器人在擁擠環境中的社交感知導航 — 橙色光環代表高風險行人，青色路徑為動態規劃軌跡</em>
+  <em>AC-SAC 機器人在擁擠環境中的社交感知導航 — 橙色光環代表高風險行人，青色路徑為動態規劃軌跡</em>
 </p>
 
 ---
@@ -47,7 +47,7 @@
 
 ## 核心挑戰
 
-CS-SAC 針對現有系統的**兩大底層瓶頸**提出根本性解法：
+AC-SAC 針對現有系統的**兩大底層瓶頸**提出根本性解法：
 
 ### ❄️ 問題一：機器人凍結 (Freezing Robot Problem)
 
@@ -68,7 +68,7 @@ CS-SAC 針對現有系統的**兩大底層瓶頸**提出根本性解法：
 <p align="center">
   <img src="images/performance_comparison.png" alt="各方法性能對比" width="85%"/>
   <br>
-  <em>CS-SAC vs. 主流導航方法在成功率與社交合規性上的量化比較</em>
+  <em>AC-SAC vs. 主流導航方法在成功率與社交合規性上的量化比較</em>
 </p>
 
 | 技術流派 | 處理動態高維特徵 | 避免局部最佳解 | 軌跡平滑性 | 收斂速度 |
@@ -76,7 +76,7 @@ CS-SAC 針對現有系統的**兩大底層瓶頸**提出根本性解法：
 | 規則模型 (ORCA / SFM) | ❌ | ❌ | ➖ | ✅ |
 | 標準 DRL (Vanilla SAC / DDPG) | ➖ | ❌ | ➖ | ➖ |
 | 單一注意力模型 (SARL) | ✅ | ➖ | ➖ | ❌ |
-| **CS-SAC（本方案）** | ✅ | ✅ | ✅ | ✅ |
+| **AC-SAC（本方案）** | ✅ | ✅ | ✅ | ✅ |
 
 ---
 
@@ -85,10 +85,10 @@ CS-SAC 針對現有系統的**兩大底層瓶頸**提出根本性解法：
 <p align="center">
   <img src="images/cs_sac_architecture.png" alt="CS-SAC 系統架構圖" width="85%"/>
   <br>
-  <em>CS-SAC 完整系統架構：AW 網路 → SAC 策略網路 → 連續控制輸出</em>
+  <em>AC-SAC 完整系統架構：AW 網路 → SAC 策略網路 → 連續控制輸出</em>
 </p>
 
-CS-SAC 的三層核心處理流程：
+AC-SAC 的三層核心處理流程：
 
 ```
 [動態行人觀測 + 機器人自身狀態]
@@ -193,7 +193,7 @@ $$\pi^* = \arg\max_\pi \mathbb{E}\left[\sum_t r(s_t, a_t) + \alpha \mathcal{H}(\
 
 ## MDP 框架定義
 
-CS-SAC 將社交導航形式化為**馬可夫決策過程 (MDP)**，並對核心要素進行重新定義：
+AC-SAC 將社交導航形式化為**馬可夫決策過程 (MDP)**，並對核心要素進行重新定義：
 
 ### 狀態空間 S
 
